@@ -76,11 +76,23 @@ namespace AAS
 
         public override void Transporte()
         {
-            //Implementaçao
+           Console.WriteLine($"O veículo {sigla} está em movimento e pode transportar {lugares} pessoas.");
         }
         public void TipoVeiculos()
         {
 
+         if (sigla.Equals("ABSC", StringComparison.OrdinalIgnoreCase))
+        {
+           Console.WriteLine("Tipo de Ocorrência: Emergência Médica.");
+        }
+        else if (sigla.Equals("BOM", StringComparison.OrdinalIgnoreCase))
+        {
+          Console.WriteLine("Tipo de Ocorrência: Incêndio.");
+        }
+        else
+        {
+          Console.WriteLine("Tipo de Ocorrência: Veículo comum, sem ocorrência específica.");
+        }
         }
     }
 }
