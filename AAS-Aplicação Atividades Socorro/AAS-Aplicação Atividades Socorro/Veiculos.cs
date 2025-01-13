@@ -105,9 +105,61 @@ namespace AAS
 
         }
 
-        public string TipoVeiculos()
+       
+    public string TipoVeiculos()
+    {
+        return this.categoria;
+    }
+
+
+
+   
+    public void ExibirHistoricoViagens()
+    {
+        Console.WriteLine($"Histórico de viagens do veículo {sigla}:");
+        if (historicoViagens.Count == 0)
         {
-            return "carro"; 
+            Console.WriteLine("Nenhuma viagem registada.");
+        }
+        else
+        {
+            foreach (var viagem in historicoViagens)
+            {
+                Console.WriteLine(viagem);
+            }
         }
     }
+
+    public void Manutencao(bool emManutencao)
+    {
+        if (emManutencao)
+        {
+            Console.WriteLine($"O veículo {sigla} está em manutenção.");
+        }
+        else
+        {
+            Console.WriteLine($"O veículo {sigla} está operacional.");
+        }
+    }
+
+    public bool DisponivelParaViagem()
+    {
+        return !emMovimento;
+    }
+
+    public void AtualizarLugares(int novosLugares)
+    {
+        if (novosLugares > 0)
+        {
+            lugares = novosLugares;
+            Console.WriteLine($"A capacidade do veículo {sigla} foi atualizada para {lugares} lugares.");
+        }
+        else
+        {
+            Console.WriteLine("Número de lugares inválido.");
+        }
+    }
+
+    #endregion
 }
+
